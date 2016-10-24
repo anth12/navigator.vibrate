@@ -1,0 +1,26 @@
+{
+  "name": "vibrate simulator",
+  "description": "Simulates the `navigator.vibrate` native function on desktop",
+  "version": "0.0.1",
+  "content_scripts": [{
+		"run_at": "document_start",
+		"js": [
+			"content_setup.js"
+		],
+    "css": [
+      "content.css" 
+    ],
+		"matches": [
+          "<all_urls>"
+		]
+	}],
+  "icons": { 
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png" 
+  },
+  "web_accessible_resources":[
+    "content.js"
+  ],
+  "manifest_version": 2
+}

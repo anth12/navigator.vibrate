@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>vibrate test page</title>
+    <script>
+      
+      window.addEventListener('load', function(){
+        
+        var elems = document.querySelectorAll('[data-vibrate]');
+            for(var i = 0; i < elems.length; i++) {
+
+                elems[i].addEventListener('click', function(){
+                    
+                    var vibrationPattern = this.dataset.vibrate.split(',').map(n=> parseInt(n));
+
+                    navigator.vibrate(vibrationPattern);
+
+                }, false);
+            }
+      });
+
+    </script>
+
+  </head>
+  <body>
+      <button data-vibrate="0">vibrate 0</button>
+      <button data-vibrate="100">vibrate 100ms</button>
+      <button data-vibrate="200">vibrate 200ms</button>
+      <button data-vibrate="500">vibrate 500ms</button>
+      <button data-vibrate="1000">vibrate 1000ms</button>
+      <button data-vibrate="250,250,250,250,250,250,250">vibrate 250, 250 x4</button>      
+      <button data-vibrate="500,1000,500,1000,500">vibrate 500, 1000 x3</button>
+  </body>
+</html>
